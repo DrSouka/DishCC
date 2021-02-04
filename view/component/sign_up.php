@@ -19,6 +19,7 @@ $formElement->set_Placeholder('Pseudo');
 $form->add_Element($formElement);
 
 $formElement = new FormElement();
+<<<<<<< Updated upstream
 $formElement->set_Name('input_Firstname');
 $formElement->set_Type('text');
 $formElement->set_Required(true);
@@ -33,6 +34,8 @@ $formElement->set_Placeholder('Lastname');
 $form->add_Element($formElement);
 
 $formElement = new FormElement();
+=======
+>>>>>>> Stashed changes
 $formElement->set_Name('input_Email');
 $formElement->set_Type('email');
 $formElement->set_Required(true);
