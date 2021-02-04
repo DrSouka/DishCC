@@ -21,3 +21,11 @@ function page_constructor($page){
 function home(){
   page_constructor("Home");
 }
+
+function sign_up(){
+  page_constructor("Sign up");
+}
+
+function sign_in(){
+  page_constructor("Sign in");
+}
