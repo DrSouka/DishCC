@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
 
-  <title>BloomComics - <?=$page;?></title>
+  <title>DishCC - <?=$page;?></title>
 
     <link rel="stylesheet" href='view/style/css/body.css'>
     <link rel="stylesheet" href='view/style/css/header.css'>
