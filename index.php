@@ -1,24 +1,17 @@
 <?php
-/**
+/*
  * User: Samuel Meyer
- * Date: 04.02.2021
+ * Date: 11.02.2021
  * Updated by :
  *
  */
 
 /*session_start();*/
-require "controler.php";
 
-$errorMessages = array();
 
-/*
-try{
-	$db = new Db;
-}catch (PDOException $exception) {
-    echo 'Connection failed: ' . $exception->getMessage();
-    die();
-}
-*/
+/* Import all files in 'controler' folder */
+$controlerFiles = glob( __DIR__ . '/controler/*.php');
+foreach($controlerFiles as $file){require($file);}
 
 if(!isset($_GET['action'])){$_GET['action'] = 'home';}
 switch ($_GET['action']) {
@@ -29,27 +22,11 @@ switch ($_GET['action']) {
    *
    */
 
-  case 'home' :
-    home();
-  break;
-
   /*
    *
    *  FEATURES
    *
    */
-
-  case 'sign_in' :
-    sign_in($_POST);
-  break;
-
-  case 'sign_up' :
-    sign_up($_POST);
-  break;
-
-  case 'sign_out' :
-    sign_out();
-  break;
 
   /* DEFAULT */
   default :

@@ -1,3 +1,1 @@
-<section>
-  <p>HOME</p>
-</section>
+HOME
