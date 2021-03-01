@@ -20,7 +20,7 @@ ALTER DATABASE dishcc CHARACTER SET utf8 COLLATE utf8_unicode_ci;
 
 -- Export table's structure of dishcc. category
 CREATE TABLE IF NOT EXISTS `category` (
-  `id` int unsigned AUTO_INCREMENT NOT NULL,
+  `id` tinyint unsigned AUTO_INCREMENT NOT NULL,
   `name` varchar(256) NOT NULL,
   PRIMARY KEY (`id`)
 );
@@ -32,6 +32,9 @@ CREATE TABLE IF NOT EXISTS `dish` (
   `nperson` tinyint unsigned NOT NULL,
   `tpreparation` time DEFAULT NULL,
   `tcooking` time DEFAULT NULL,
+  `category` tinyint unsigned,
+  `type` tinyint unsigned,
+  `author` int unsigned,
   `difficulty` tinyint NOT NULL,
   `calories` float unsigned NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -66,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `result` (
 
 -- Export table's structure of dishcc. type
 CREATE TABLE IF NOT EXISTS `type` (
-  `id` int unsigned AUTO_INCREMENT NOT NULL,
+  `id` tinyint unsigned AUTO_INCREMENT NOT NULL,
   `name` varchar(256) NOT NULL,
   PRIMARY KEY (`id`)
 );
