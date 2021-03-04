@@ -64,6 +64,14 @@ CREATE TABLE IF NOT EXISTS `result` (
   PRIMARY KEY (`id`)
 );
 
+-- Export table's structure of dishcc. result_ingredient
+CREATE TABLE IF NOT EXISTS `result_ingredient` (
+  `id` int unsigned AUTO_INCREMENT NOT NULL,
+  `result` int unsigned NOT NULL,
+  `ingredient` int unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+);
+
 -- Export table's structure of dishcc. type
 CREATE TABLE IF NOT EXISTS `type` (
   `id` int unsigned AUTO_INCREMENT NOT NULL,
@@ -95,6 +103,10 @@ ADD FOREIGN KEY (`ingredient`) REFERENCES `ingredient`(`id`);
 
 ALTER TABLE `result`
 ADD FOREIGN KEY (`user`) REFERENCES `user`(`id`);
+
+ALTER TABLE `result_ingredient`
+ADD FOREIGN KEY (`result`) REFERENCES `result`(`id`);
+ADD FOREIGN KEY (`ingredient`) REFERENCES `ingredient`(`id`);
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
