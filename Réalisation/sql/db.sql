@@ -109,6 +109,7 @@ ADD FOREIGN KEY (`user`) REFERENCES `user`(`id`);
 
 ALTER TABLE `result_ingredient`
 ADD FOREIGN KEY (`result`) REFERENCES `result`(`id`);
+ALTER TABLE `result_ingredient`
 ADD FOREIGN KEY (`ingredient`) REFERENCES `ingredient`(`id`);
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
