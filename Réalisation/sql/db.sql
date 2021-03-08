@@ -85,7 +85,6 @@ CREATE TABLE IF NOT EXISTS `type` (
 -- Export table's structure of dishcc. user
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int unsigned AUTO_INCREMENT NOT NULL,
-  `pseudo` varchar(256) NOT NULL,
   `email` varchar(256) NOT NULL,
   `password` varchar(8000) NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,

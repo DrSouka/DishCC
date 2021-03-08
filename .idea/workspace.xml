@@ -1,27 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a6f39433-582f-4b00-88ab-d9a9ad325ee1" name="Default Changelist" comment="Folder reinitialisation">
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analyse/wireframes/Calorie calculator.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Analyse/wireframes/wireframes.bmpr" beforeDir="false" afterPath="$PROJECT_DIR$/Analyse/wireframes/wireframes.bmpr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Documentation/Dossier de Projet DishCC.docx" beforeDir="false" afterPath="$PROJECT_DIR$/Documentation/Dossier de Projet DishCC.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Réalisation/DishCC" beforeDir="false" afterPath="$PROJECT_DIR$/Réalisation/DishCC" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Réalisation/DishCC/controler/controler.php" beforeDir="false" afterPath="$PROJECT_DIR$/Réalisation/DishCC/controler/controler.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Réalisation/DishCC/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Réalisation/DishCC/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Réalisation/base/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Réalisation/base/.idea/base.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Réalisation/base/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Réalisation/base/controler/controler.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Réalisation/base/index.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Réalisation/base/view/class/button.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Réalisation/base/view/class/form.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Réalisation/base/view/class/menu.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Réalisation/base/view/home.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Réalisation/base/view/template.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Réalisation/from-sicily" beforeDir="false" />
-    </list>
+    <list default="true" id="a6f39433-582f-4b00-88ab-d9a9ad325ee1" name="Default Changelist" comment="Folder reinitialisation" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,7 +11,7 @@
     <execution />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/Réalisation/DishCC" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
   <component name="ProjectId" id="1oL7Ah9nxz7qCpv010MHd8jvzo2" />
@@ -70,6 +50,7 @@
       <workItem from="1613053876183" duration="939000" />
       <workItem from="1613660671870" duration="991000" />
       <workItem from="1613718521495" duration="952000" />
+      <workItem from="1615201857996" duration="3000" />
     </task>
     <servers />
   </component>
