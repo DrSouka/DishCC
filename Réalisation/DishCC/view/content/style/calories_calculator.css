@@ -1,0 +1,44 @@
+.ingredient{
+  overflow: auto;
+  max-height: 30em;
+  max-width: 20em;
+  display: none;
+}
+
+.block .add{
+  width: 3.5em;
+  height: 3.5em;
+  background-color: #1FAB89;
+  cursor: pointer;
+}
+
+.block .element{
+  padding: 1em;
+  width: 10em;
+  background-color: #1FAB89;
+  color: #F5F5F5;
+  font-size: larger;
+  font-weight: bolder;
+  cursor: pointer;
+  text-align: center;
+  margin: 1em;
+  display: block;
+}
+
+.block .add:hover, .block .element:hover{
+  background-color: #468F7F;
+  transition: .3s;
+}
+
+.block .value{
+  background-color: #A5ABB2;
+  cursor: auto;
+}
+
+.block .value:hover{
+  background-color: #A5ABB2;
+}
+
+.block p{
+  display: inline;
+}
