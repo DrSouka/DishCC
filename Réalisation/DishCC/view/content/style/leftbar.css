@@ -1,0 +1,106 @@
+.rightbar{
+  background-color: #333B4B;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+}
+
+.rightbar .container{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  width: 50%;
+}
+
+.rightbar .container h1{
+  color: #1FAB89;
+}
+
+.rightbar .container input{
+  display: block;
+  margin: auto;
+  border: none;
+  padding: .5em 0;
+  font-weight: bolder;
+  font-family: Arial, sans-serif;
+  font-size: larger;
+  text-align: center;
+  color: #777777;
+  width: 100%;
+}
+
+.rightbar .container .text, .rightbar .container .password{
+  background-color: #252634;
+}
+
+.rightbar .container .text::placeholder, .rightbar .container .password::placeholder{
+  color: #777777;
+}
+
+.rightbar .container .submit{
+  background-color: #1FAB89;
+  color: #F8F1F1;
+  cursor: pointer;
+  width: 100%;
+  margin: 1em auto .5em;
+}
+
+.rightbar .container .submit:hover{
+  background-color: #468F7F;
+  transition: .3s;
+}
+
+.rightbar .container .message{
+  margin: .2em auto .7em;
+  height: 1em;
+  font-size: smaller;
+  color: red;
+}
+
+.rightbar .container .menuElement{
+  display: block;
+  font-size: larger;
+  font-weight: bolder;
+  text-decoration: none;
+  color: #777777;
+  margin: 3em auto;
+}
+
+.rightbar .container .menuElement:hover, .rightbar .modify_password:hover{
+  color: #C8C8C8;
+  transition: .3s;
+}
+
+.rightbar .container .sign_out{
+  color: #C8C8C8;
+  margin-top: 12em;
+}
+
+.rightbar .container .sign_out:hover{
+  color: #1FAB89;
+}
+
+.rightbar .modify_password{
+  color: #777777;
+  text-decoration: none;
+  font-size: larger;
+  font-weight: bolder;
+  position: absolute;
+  bottom: 1em;
+  left: 1em;
+}
+
+.rightbar .container a{
+  color: #1FAB89;
+  text-decoration: none;
+}
+
+.rightbar .container a:hover{
+  color: #468F7F;
+  transition: .3s;
+}
