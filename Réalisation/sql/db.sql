@@ -32,11 +32,11 @@ CREATE TABLE IF NOT EXISTS `dish` (
   `nperson` tinyint unsigned NOT NULL,
   `tpreparation` time DEFAULT NULL,
   `tcooking` time DEFAULT NULL,
+  `difficulty` tinyint NOT NULL,
+  `calories` float unsigned NOT NULL,
   `category` tinyint unsigned NOT NULL,
   `type` tinyint unsigned NOT NULL,
   `author` int unsigned NOT NULL,
-  `difficulty` tinyint NOT NULL,
-  `calories` float unsigned NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 );
@@ -70,6 +70,7 @@ CREATE TABLE IF NOT EXISTS `result` (
 -- Export table's structure of dishcc. result_ingredient
 CREATE TABLE IF NOT EXISTS `result_ingredient` (
   `id` int unsigned AUTO_INCREMENT NOT NULL,
+  `grams` float unsigned NOT NULL,
   `result` int unsigned NOT NULL,
   `ingredient` int unsigned NOT NULL,
   PRIMARY KEY (`id`)
