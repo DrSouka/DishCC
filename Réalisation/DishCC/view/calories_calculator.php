@@ -12,6 +12,6 @@
 <div class='block'>
   <div class='add' onclick="document.getElementById('list').style.display = 'block';"></div>
   <div class='element calories'>How much calories?</div>
-  <div class='element'><div class='value'>Result</div><p>calories</p></div>
+  <div class='element result'><div class='value'>Result</div><p>calories</p></div>
   <div class=' element save'>Save in history</div>
 </div>
