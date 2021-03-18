@@ -201,3 +201,24 @@ function modify_password_check($modify_request){
     }
   }
 }
+
+/**
+ * Init home view
+ */
+function search_a_dish(){
+  page_constructor('Search a dish');
+}
+
+/**
+ * Init home view
+ */
+function my_history(){
+  page_constructor('My history');
+}
+
+/**
+ * Init home view
+ */
+function suggest_a_dish(){
+  page_constructor('Suggest a dish');
+}

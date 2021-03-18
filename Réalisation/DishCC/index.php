@@ -7,7 +7,7 @@
  */
 
 // Session creation
-//session_set_cookie_params(60*60*24*7, null, null, true, null);
+//session_set_cookie_params(60*60*24*14, null, null, true, null);
 session_start();
 
 // DB connection
@@ -35,6 +35,18 @@ switch ($_GET['action']) {
   case 'calories_calculator' :
     calories_calculator();
   break;
+
+	case 'search_a_dish' :
+	 search_a_dish();
+	break;
+
+	case 'my_history' :
+		my_history();
+	break;
+
+	case 'suggest_a_dish' :
+	 suggest_a_dish();
+	break;
 
   /*
    *
