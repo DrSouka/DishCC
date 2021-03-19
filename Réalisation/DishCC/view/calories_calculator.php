@@ -13,8 +13,8 @@
 <div class='block'>
   <div class='add' onclick="document.getElementById('ingredient').style.display = 'block';"></div>
   <div class='element calories' onclick="result('list', 'result');">How much calories?</div>
-  <div class='result' id='result'><div class='value'>Result</div><p>calories</p></div>
-  <div class=' element save'>Save in history</div>
+  <div class='result' id='result'><div class='value' name='result'>Result</div><p>calories</p></div>
+  <div class='element save' onclick="location.href='index?action=save_in_history'">Save in history</div>
 </div>
 
 <script>

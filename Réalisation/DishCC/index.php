@@ -70,6 +70,10 @@ switch ($_GET['action']) {
     modify_password_check($_POST);
   break;
 
+  case 'save_in_history' :
+    save_in_history($_POST);
+  break;
+
   /* DEFAULT */
   default :
     home();

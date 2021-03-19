@@ -222,3 +222,7 @@ function my_history(){
 function suggest_a_dish(){
   page_constructor('Suggest a dish');
 }
+
+function save_in_history(){
+  
+}
