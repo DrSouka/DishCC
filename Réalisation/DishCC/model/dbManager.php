@@ -49,19 +49,16 @@ function insert($newDatas = [], $table){
 **/
 function update($newDatas = [], $table, $id){
   global $db;
-  $update = [];
+  $update = $params = [];
 
   foreach($newDatas as $field => $newData){
-    $update[] = $field .' = `'. $newData .'`';
+    $update[] = $field ." = ?";
+    $params[] = $newData;
   }
+  $params[] = $id;
+  $query = 'UPDATE '. $table .' SET '. implode(', ', $update) .' WHERE id = ?';
 
-  $query = 'UPDATE '. $table .' SET '. implode($update) .' WHERE id = '. $id;
-
-  echo $query;
-
-  /*$params = array_values($dataList);
-
-  return $db->insert($query,$params);*/
+  return $db->update($query,$params);
 }
 
 /**

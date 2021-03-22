@@ -24,14 +24,14 @@ function page_constructor($page){
 }
 
 /**
- * Init home view
+ * Init Home view
  */
 function home(){
   page_constructor('Home');
 }
 
 /**
- * Init sign up view
+ * Init Sign up view
  */
 function sign_up(){
     page_constructor("Sign up");
@@ -110,7 +110,7 @@ function sign_up_check($sign_up_request){
 }
 
 /**
- * Init sign in view
+ * Init Sign in view
  */
 function sign_in(){
     page_constructor("Sign in");
@@ -154,12 +154,19 @@ function sign_in_check($sign_in_request){
   }
 }
 
+/**
+ * @param string[] $sign_in_request [field => value]
+ **/
 function createSession($sign_in_request){
   require_once "model/dbManager.php";
   $_SESSION['email'] = select('email', 'user', array('email' => $sign_in_request['email']))[0]['email'];
   $_SESSION['uid'] = select('id', 'user', array('email' => $sign_in_request['email']))[0]['id'];
+  setcookie("haveAccount", true, time()+(60*60*24*7));
 }
 
+/**
+ * Sign out
+ **/
 function sign_out(){
     session_unset();
     session_destroy();
@@ -174,10 +181,9 @@ function calories_calculator(){
     page_constructor("Calories calculator");
 }
 
-
 /**
- * Init sign in view
- */
+ * @param string[] $modify_in_request [field => value]
+ **/
 function modify_password_check($modify_request){
   if(
     isset($modify_request['cPassword']) &&
@@ -203,26 +209,22 @@ function modify_password_check($modify_request){
 }
 
 /**
- * Init home view
+ * Init Search a dish view
  */
 function search_a_dish(){
   page_constructor('Search a dish');
 }
 
 /**
- * Init home view
+ * Init My history view
  */
 function my_history(){
   page_constructor('My history');
 }
 
 /**
- * Init home view
+ * Init Suggest a dish view
  */
 function suggest_a_dish(){
   page_constructor('Suggest a dish');
-}
-
-function save_in_history(){
-  
 }

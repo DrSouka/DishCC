@@ -76,6 +76,8 @@ switch ($_GET['action']) {
 
   /* DEFAULT */
   default :
-    home();
+		case 'home':
+	    home();
+	  break;
   break;
 }
