@@ -51,8 +51,8 @@ class Db
         $port = 3306;
         $charset = 'utf8';
         $dbName = 'dishcc';
-        $userName = 'root';
-        $userPwd = '';
+        $userName = 'dishcc';
+        $userPwd = '88w36fn9MdorXPCp';
         $dsn = $sqlDriver . ':host=' . $hostname . ';dbname=' . $dbName . ';port=' . $port . ';charset=' . $charset;
 
         $this->dbConnection = new PDO($dsn, $userName, $userPwd);
