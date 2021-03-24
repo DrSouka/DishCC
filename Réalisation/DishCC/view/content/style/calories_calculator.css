@@ -3,7 +3,7 @@
   vertical-align: middle;
 }
 
-.block .add{
+.add{
   width: 3.5em;
   height: 3.5em;
   background-color: #1FAB89;
@@ -26,7 +26,7 @@
   background-color: #1FAB89;
 }
 
-.block .add:hover, .block .calories:hover, .block .save:hover{
+.add:hover, .block .calories:hover, .block .save:hover{
   background-color: #468F7F;
   transition: .3s;
 }

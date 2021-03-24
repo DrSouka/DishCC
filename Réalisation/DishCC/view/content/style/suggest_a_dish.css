@@ -1,0 +1,18 @@
+.suggest_a_dish select, .suggest_a_dish label{
+  display: block;
+}
+
+.suggest_a_dish .add{
+  display: inline-block;
+}
+
+.fm_txtfld{
+  display: block;
+  border: none;
+  padding: .5em 0;
+  font-weight: bolder;
+  font-family: Arial, sans-serif;
+  font-size: larger;
+  text-align: center;
+  color: #777777;
+}

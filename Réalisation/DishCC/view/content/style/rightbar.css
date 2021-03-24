@@ -34,11 +34,11 @@
   width: 100%;
 }
 
-.rightbar .container .text, .rightbar .container .password{
+.rightbar .container .text, .rightbar .container .password, .fm_txtfld{
   background-color: #252634;
 }
 
-.rightbar .container .text::placeholder, .rightbar .container .password::placeholder{
+.rightbar .container .text::placeholder, .rightbar .container .password::placeholder, .fm_txtfld::placeholder{
   color: #777777;
 }
 
