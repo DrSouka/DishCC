@@ -241,22 +241,68 @@ function check_suggest_a_dish($request){
     isset($request['difficulty']) &&
     isset($request['recipe'])
   ){
+    $check = true;
     if($check){
-      $datas['name'] = $request['name'];
-      $datas['nperson'] = $request['nbPerson'];
-      $datas['tpreparation'] = $request['pTime'];
-      $datas['tcooking'] = $request['cTime'];
-      $datas['category'] = $request['category'];
-      $datas['type'] = $request['type'];
-      $datas['author'] = $_SESSION['uid'];
-      $datas['difficulty'] = $request['difficulty'];
-      $datas['recipe'] = $request['recipe'];
+      $dish['ni'] = gen_ni('dish');
+      $dish['name'] = $request['name'];
+      $dish['nperson'] = $request['nbPerson'];
+      $dish['tpreparation'] = $request['pTime'];
+      $dish['tcooking'] = $request['cTime'];
+      $dish['category'] = $request['category'];
+      $dish['type'] = $request['type'];
+      $dish['author'] = $_SESSION['uid'];
+      $dish['difficulty'] = $request['difficulty'];
+      $dish['recipe'] = $request['recipe'];
+      insert($dish, 'dish');
 
-      insert($datas, 'dish');
+      foreach($request['ingredient'] as $key => $value){
+        $dish_ingredient['dish'] = $dish['ni'];
+        $dish_ingredient['ingredient'] = $key;
+        $dish_ingredient['grams'] = $value;
+        insert($dish_ingredient, 'dish_ingredient');
+      }
+
       header('Location: index.php?action=suggest_a_dish');
       die();
     }
   }else{
     suggest_a_dish();
   }
+}
+
+function gen_ni($table){
+  require_once "model/dbManager.php";
+
+  $newNi = false;
+
+  $uppercase = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  $lowercase = 'abcdefghijklmnopqrstuvwxyz';
+  $numeric = '1234567890';
+  $ni = '';
+
+  function rand_as_length($array){return $array[rand(0, strlen($array)-1)];}
+
+  do{
+    for($i = 1; $i <= 32; $i++){
+      switch(rand(1,3)){
+        case 1:
+          $ni .= rand_as_length($uppercase);
+        break;
+
+        case 2:
+          $ni .= rand_as_length($lowercase);
+        break;
+
+        default:
+          $ni .= rand_as_length($numeric);
+        break;
+      }
+    }
+
+    if(select('ni', $table, array('ni' => $ni)) == $ni){
+      $newNi = true;
+    }
+  }while($newNi);
+
+  return $ni;
 }

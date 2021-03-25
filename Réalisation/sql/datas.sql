@@ -6,7 +6,6 @@ VALUES
 ('Amaranth seed, Black', 356.1),
 ('Anise seeds', 153.3),
 ('Apple', 52),
-('Apple', 62.3),
 ('Apricot', 48),
 ('Apricot, dried', 31.5),
 ('Arecanut dried', 350.6),

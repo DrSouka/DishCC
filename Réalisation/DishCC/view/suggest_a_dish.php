@@ -39,7 +39,7 @@
     </label>
 
     <label>Difficulty
-      <input name='difficulty' class='fm_txtfld nb' type='number' max=5 min=1 placeholder='N' required/><p class='nb'>/5</p>
+      <input name='difficulty' class='fm_txtfld nb' type='number' max=5 min=1 placeholder='N' required/><p class='nb'> /5</p>
     </label>
   </section>
 

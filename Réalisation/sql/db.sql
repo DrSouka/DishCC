@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS `category` (
 -- Export table's structure of dishcc. dish
 CREATE TABLE IF NOT EXISTS `dish` (
   `id` int unsigned AUTO_INCREMENT NOT NULL,
+  `ni` varchar(32) NOT NULL,
   `name` varchar(256) NOT NULL,
   `category` tinyint unsigned NOT NULL,
   `type` tinyint unsigned NOT NULL,
@@ -38,14 +39,14 @@ CREATE TABLE IF NOT EXISTS `dish` (
   `recipe` varchar(4000) NOT NULL,
   `author` int unsigned NOT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE (`recipe`)
+  UNIQUE (`ni`)
 );
 
 -- Export table's structure of dishcc. dish_ingredient
 CREATE TABLE IF NOT EXISTS `dish_ingredient` (
   `id` int unsigned AUTO_INCREMENT NOT NULL,
   `grams` float unsigned NOT NULL,
-  `dish` int unsigned NOT NULL,
+  `dish` varchar(32) NOT NULL,
   `ingredient` int unsigned NOT NULL,
   PRIMARY KEY (`id`)
 );
@@ -62,11 +63,13 @@ CREATE TABLE IF NOT EXISTS `ingredient` (
 -- Export table's structure of dishcc. result
 CREATE TABLE IF NOT EXISTS `result` (
   `id` int unsigned AUTO_INCREMENT NOT NULL,
+  `ni` varchar(32) NOT NULL,
   `calories` float unsigned NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user` int unsigned NOT NULL,
   `result` int unsigned NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE (`ni`)
 );
 
 -- Export table's structure of dishcc. result_ingredient
@@ -102,7 +105,7 @@ ALTER TABLE `dish`
 ADD FOREIGN KEY (`author`) REFERENCES `user`(`id`);
 
 ALTER TABLE `dish_ingredient`
-ADD FOREIGN KEY (`dish`) REFERENCES `dish`(`id`);
+ADD FOREIGN KEY (`dish`) REFERENCES `dish`(`ni`);
 ALTER TABLE `dish_ingredient`
 ADD FOREIGN KEY (`ingredient`) REFERENCES `ingredient`(`id`);
 

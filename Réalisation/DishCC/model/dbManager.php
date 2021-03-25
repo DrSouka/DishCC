@@ -38,7 +38,7 @@ function insert($newDatas = [], $table){
 
   $query .= implode(', ', $fieldList) .') VALUES ('. implode(', ', $dataTags). ')';
   $params = array_values($dataList);
-
+  
   return $db->insert($query,$params);
 }
 

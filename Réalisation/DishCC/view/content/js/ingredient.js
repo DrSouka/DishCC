@@ -15,12 +15,14 @@ function result(element, target){
 function add_element(element){
   var new_element = document.createElement('div');
   var title = document.createTextNode(element.firstChild.innerText);
+  new_element.name = 'ingredient';
   new_element.id = element.id + "e";
   new_element.className = 'element';
   new_element.setAttribute("calories", element.childNodes[1].innerHTML);
   new_element.appendChild(title);
 
   var nbInput = document.createElement('input');
+  nbInput.name = "ingredient["+ element.id +"]";
   nbInput.type = 'number';
   nbInput.min = 1;
   nbInput.placholder = 'N';
