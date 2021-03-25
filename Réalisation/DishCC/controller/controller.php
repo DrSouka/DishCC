@@ -43,70 +43,70 @@ function sign_up(){
 function sign_up_check($sign_up_request){
   unset($_COOKIE['haveAccount']);
   global $message;
-    require_once "model/dbManager.php";
-    if(sizeof($sign_up_request) == 4){
-        $check = true;
-        $emailCheck = '';
+  require_once "model/dbManager.php";
+  if(sizeof($sign_up_request) == 4){
+    $check = true;
+    $emailCheck = '';
 
-        // Init variables value from db datas
-        $emailCheck = select('email', 'user', array('email' => $sign_up_request['email']));
+    // Init variables value from db datas
+    $emailCheck = select('email', 'user', array('email' => $sign_up_request['email']));
 
-        // Check email in db
-        if(isset($emailCheck[0]['email'])){
-            if($sign_up_request['email'] == $emailCheck[0]['email']){
-                $message['email'] = 'This email is already registred.';
-                $check = false;
-            }
-        }
-
-        // Check password constraints
-        $minCharType = 0;
-        if(isset($sign_up_request['password'])){
-            $uppercase = false;
-            $lowercase = false;
-            $numeric = false;
-            $special = false;
-
-            foreach(str_split($sign_up_request['password']) as $char){
-                if(is_numeric($char)){$numeric = true;}
-                if(ctype_upper($char)){$uppercase = true;}
-                if(ctype_lower($char)){$lowercase = true;}
-                if(preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $char)){$special = true;}
-            }
-
-            if($uppercase){$minCharType++;}
-            if($lowercase){$minCharType++;}
-            if($numeric){$minCharType++;}
-            if($special){$minCharType++;}
-            if($minCharType >= 3){$minCharType = true;}
-
-            if($sign_up_request['password'] != $sign_up_request['confirm']){
-                $message['password'] = 'Password and confirm are not sames.';
-                $check = false;
-            }
-
-            if(
-                strlen($sign_up_request['password']) < 8 &&
-                $minCharType
-            ){
-                $message['password'] = 'The password requires at least 8 characters and 3 different types of characters.';
-                $check = false;
-            }
-        }
-        // Account registration in db
-        if($check){
-            $datas['email'] = $sign_up_request['email'];
-            $datas['password'] = password_hash($sign_up_request['password'], PASSWORD_DEFAULT);
-            insert($datas, 'user'); // insert datas in db
-            $_COOKIE['haveAccount'] = true;
-            header('Location: index.php?action=sign_in');
-			      die();
-        }else{
-            sign_up();
-        }
-    }else{
-        sign_up();
+    // Check email in db
+    if(isset($emailCheck[0]['email'])){
+      if($sign_up_request['email'] == $emailCheck[0]['email']){
+        $message['email'] = 'This email is already registred.';
+        $check = false;
+      }
     }
+
+    // Check password constraints
+    $minCharType = 0;
+    if(isset($sign_up_request['password'])){
+      $uppercase = false;
+      $lowercase = false;
+      $numeric = false;
+      $special = false;
+
+      foreach(str_split($sign_up_request['password']) as $char){
+        if(is_numeric($char)){$numeric = true;}
+        if(ctype_upper($char)){$uppercase = true;}
+        if(ctype_lower($char)){$lowercase = true;}
+        if(preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $char)){$special = true;}
+      }
+
+      if($uppercase){$minCharType++;}
+      if($lowercase){$minCharType++;}
+      if($numeric){$minCharType++;}
+      if($special){$minCharType++;}
+      if($minCharType >= 3){$minCharType = true;}
+
+      if($sign_up_request['password'] != $sign_up_request['confirm']){
+        $message['password'] = 'Password and confirm are not sames.';
+        $check = false;
+      }
+
+      if(
+          strlen($sign_up_request['password']) < 8 &&
+          $minCharType
+      ){
+          $message['password'] = 'The password requires at least 8 characters and 3 different types of characters.';
+          $check = false;
+      }
+    }
+    // Account registration in db
+    if($check){
+      $datas['email'] = $sign_up_request['email'];
+      $datas['password'] = password_hash($sign_up_request['password'], PASSWORD_DEFAULT);
+      insert($datas, 'user'); // insert datas in db
+      $_COOKIE['haveAccount'] = true;
+      header('Location: index.php?action=sign_in');
+      die();
+    }else{
+      sign_up();
+    }
+  }else{
+    sign_up();
+  }
 }
 
 /**
@@ -227,4 +227,36 @@ function my_history(){
  */
 function suggest_a_dish(){
   page_constructor('Suggest a dish');
+}
+
+function check_suggest_a_dish($request){
+  require_once "model/dbManager.php";
+  if(
+    isset($request['name']) &&
+    isset($request['category']) &&
+    isset($request['type']) &&
+    isset($request['nbPerson']) &&
+    isset($request['pTime']) &&
+    isset($request['cTime']) &&
+    isset($request['difficulty']) &&
+    isset($request['recipe'])
+  ){
+    if($check){
+      $datas['name'] = $request['name'];
+      $datas['nperson'] = $request['nbPerson'];
+      $datas['tpreparation'] = $request['pTime'];
+      $datas['tcooking'] = $request['cTime'];
+      $datas['category'] = $request['category'];
+      $datas['type'] = $request['type'];
+      $datas['author'] = $_SESSION['uid'];
+      $datas['difficulty'] = $request['difficulty'];
+      $datas['recipe'] = $request['recipe'];
+
+      insert($datas, 'dish');
+      header('Location: index.php?action=suggest_a_dish');
+      die();
+    }
+  }else{
+    suggest_a_dish();
+  }
 }

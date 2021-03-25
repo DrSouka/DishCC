@@ -237,3 +237,22 @@ VALUES
 ('Yogurt, plain, low-fat', 63),
 ('Zucchini', 21),
 ('Zucchini, green', 20);
+
+INSERT INTO category (`name`)
+VALUES
+('Basic'),
+('Healthy'),
+('Junk food'),
+('Pastry/Bakery'),
+('Salad'),
+('Vegan'),
+('Vegetarian'),
+('Other...');
+
+INSERT INTO type (`name`)
+VALUES
+('Aperitif'),
+('Starter'),
+('Main course'),
+('Dessert'),
+('Other');

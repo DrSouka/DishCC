@@ -29,15 +29,14 @@ CREATE TABLE IF NOT EXISTS `category` (
 CREATE TABLE IF NOT EXISTS `dish` (
   `id` int unsigned AUTO_INCREMENT NOT NULL,
   `name` varchar(256) NOT NULL,
-  `nperson` tinyint unsigned NOT NULL,
-  `tpreparation` time DEFAULT NULL,
-  `tcooking` time DEFAULT NULL,
-  `difficulty` tinyint NOT NULL,
-  `calories` float unsigned NOT NULL,
   `category` tinyint unsigned NOT NULL,
   `type` tinyint unsigned NOT NULL,
+  `nperson` tinyint unsigned NOT NULL,
+  `tpreparation` time NOT NULL,
+  `tcooking` time NOT NULL,
+  `difficulty` tinyint NOT NULL,
+  `recipe` varchar(4000) NOT NULL,
   `author` int unsigned NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 );
 
@@ -64,6 +63,7 @@ CREATE TABLE IF NOT EXISTS `result` (
   `calories` float unsigned NOT NULL,
   `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user` int unsigned NOT NULL,
+  `result` int unsigned NOT NULL,
   PRIMARY KEY (`id`)
 );
 
@@ -71,7 +71,6 @@ CREATE TABLE IF NOT EXISTS `result` (
 CREATE TABLE IF NOT EXISTS `result_ingredient` (
   `id` int unsigned AUTO_INCREMENT NOT NULL,
   `grams` float unsigned NOT NULL,
-  `result` int unsigned NOT NULL,
   `ingredient` int unsigned NOT NULL,
   PRIMARY KEY (`id`)
 );
@@ -88,7 +87,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` int unsigned AUTO_INCREMENT NOT NULL,
   `email` varchar(256) NOT NULL,
   `password` varchar(8000) NOT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 );
 
@@ -107,8 +105,6 @@ ADD FOREIGN KEY (`ingredient`) REFERENCES `ingredient`(`id`);
 ALTER TABLE `result`
 ADD FOREIGN KEY (`user`) REFERENCES `user`(`id`);
 
-ALTER TABLE `result_ingredient`
-ADD FOREIGN KEY (`result`) REFERENCES `result`(`id`);
 ALTER TABLE `result_ingredient`
 ADD FOREIGN KEY (`ingredient`) REFERENCES `ingredient`(`id`);
 

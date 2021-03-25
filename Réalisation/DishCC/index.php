@@ -33,11 +33,11 @@ switch ($_GET['action']) {
    */
 
   case 'calories_calculator' :
-    calories_calculator();
+		calories_calculator();
   break;
 
 	case 'search_a_dish' :
-	 search_a_dish();
+		search_a_dish();
 	break;
 
 	case 'my_history' :
@@ -45,7 +45,7 @@ switch ($_GET['action']) {
 	break;
 
 	case 'suggest_a_dish' :
-	 suggest_a_dish();
+		check_suggest_a_dish($_POST);
 	break;
 
   /*

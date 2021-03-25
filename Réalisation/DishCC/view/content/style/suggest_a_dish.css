@@ -1,9 +1,40 @@
+.suggest_a_dish{
+  color: #F5F5F5;
+}
+
 .suggest_a_dish select, .suggest_a_dish label{
   display: block;
 }
 
-.suggest_a_dish .add{
+.suggest_a_dish .add, .suggest_a_dish section{
   display: inline-block;
+}
+
+.suggest_a_dish section{
+  padding: 2em;
+}
+
+.suggest_a_dish .hr, .suggest_a_dish .nb{
+  display: inline;
+}
+
+.suggest_a_dish .hr{
+  padding: .5em;
+  text-align: center;
+}
+
+.suggest_a_dish .nb{
+  width: 2em;
+}
+
+.suggest_a_dish .nb::-webkit-outer-spin-button,
+.suggest_a_dish .nb::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.suggest_a_dish .nb[type=number] {
+  -moz-appearance: textfield;
 }
 
 .fm_txtfld{
