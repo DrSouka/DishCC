@@ -37,7 +37,8 @@ CREATE TABLE IF NOT EXISTS `dish` (
   `difficulty` tinyint NOT NULL,
   `recipe` varchar(4000) NOT NULL,
   `author` int unsigned NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE (`recipe`)
 );
 
 -- Export table's structure of dishcc. dish_ingredient
@@ -54,7 +55,8 @@ CREATE TABLE IF NOT EXISTS `ingredient` (
   `id` int unsigned AUTO_INCREMENT NOT NULL,
   `name` varchar(256) NOT NULL,
   `caloriesPer100g` float unsigned NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE (`name`)
 );
 
 -- Export table's structure of dishcc. result
@@ -79,7 +81,8 @@ CREATE TABLE IF NOT EXISTS `result_ingredient` (
 CREATE TABLE IF NOT EXISTS `type` (
   `id` tinyint unsigned AUTO_INCREMENT NOT NULL,
   `name` varchar(256) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE (`name`)
 );
 
 -- Export table's structure of dishcc. user
@@ -87,7 +90,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` int unsigned AUTO_INCREMENT NOT NULL,
   `email` varchar(256) NOT NULL,
   `password` varchar(8000) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE (`email`)
 );
 
 ALTER TABLE `dish`
