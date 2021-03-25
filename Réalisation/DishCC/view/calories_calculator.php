@@ -4,7 +4,7 @@
     require_once "model/dbManager.php";
     $ingredientList = select(array('id', 'name', 'caloriesPer100g'), 'ingredient',);
     foreach ($ingredientList as $key => $value) {
-      echo "<div id='". $value['id'] ."' class='element' onclick='add_to_list(this);'><div class='name'>". $value['name'] ."</div><div class='calories'>". $value['caloriesPer100g'] ."</div>cal/100g</div>";
+      echo "<div id='". $value['id'] ."' class='element' onclick='add_element(this);'><div class='name'>". $value['name'] ."</div><div class='calories'>". $value['caloriesPer100g'] ."</div>cal/100g</div>";
     }
   ?>
 </div>

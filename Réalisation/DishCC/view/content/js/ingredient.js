@@ -1,22 +1,4 @@
 /**
- * @param element[] html element to add in list
- **/
-function add_to_list(element){
-  element.style.display = 'none';
-  document.getElementById('list').innerHTML += "<div id='" + element.id + "e' class='element' calories='" + element.childNodes[1].innerHTML + "'>" + element.firstChild.innerText + "<input type='number' min=1 placeholder='N'/> g<div class='close' onclick='remove(\"" + element.id + "e\", " + element.id + ");'></div></div>";
-  console.log(document.getElementById('list'));
-}
-
-/**
- * @param element[] html element from which the function will be executed
- * @param target[] html element to display in original list
- **/
-function remove(element, target){
-  document.getElementById(element).remove();
-  document.getElementById(target).style.display = 'block';
-}
-
-/**
  * @param element[] html element from which the function will be executed
  * @param target[] html element where result will be written
  **/
@@ -28,4 +10,32 @@ function result(element, target){
   });
 
   document.getElementById(target).children[0].innerText = total.toFixed(2);
+}
+
+function add_element(element){
+  var new_element = document.createElement('div');
+  var title = document.createTextNode(element.firstChild.innerText);
+  new_element.id = element.id + "e";
+  new_element.className = 'element';
+  new_element.setAttribute("calories", element.childNodes[1].innerHTML);
+  new_element.appendChild(title);
+
+  var nbInput = document.createElement('input');
+  nbInput.type = 'number';
+  nbInput.min = 1;
+  nbInput.placholder = 'N';
+  new_element.appendChild(nbInput);
+
+  var comment = document.createTextNode(' g');
+  new_element.appendChild(comment);
+
+  var close = document.createElement('div');
+  close.className = 'close';
+  close.addEventListener("click", function(){
+    document.getElementById(new_element.id).remove();
+    document.getElementById(element.id).style.display = 'block';
+  })
+  new_element.appendChild(close);
+
+  document.getElementById('list').appendChild(new_element);
 }
