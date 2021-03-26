@@ -17,6 +17,8 @@ function result(element, target){
 * @param {element} element ingredient element to add in a list of ingredient
 */
 function add_element(element){
+  document.getElementById(element.id).style.display = 'none';
+  
   //set ingredient element parameters
   var new_element = document.createElement('div');
   var title = document.createTextNode(element.firstChild.innerText);
