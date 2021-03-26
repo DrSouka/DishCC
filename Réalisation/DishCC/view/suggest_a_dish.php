@@ -1,4 +1,5 @@
 <?php require_once "model/dbManager.php";?>
+
 <form class='suggest_a_dish' method='post' action='index.php?action=suggest_a_dish'>
   <section>
     <input name='name' class='fm_txtfld' type='text' placeholder='Enter a dish name...' required/>
@@ -6,6 +7,7 @@
     <select name='category' required>
       <option selected>Choose a category...</option>
       <?php
+        // Create from db datas
         $categoryList = select(array('id', 'name'), 'category');
         foreach($categoryList as $key => $value){
           echo "<option value='". $value['id'] ."'>". $value['name'] ."</option>";
@@ -16,6 +18,7 @@
     <select name='type' required>
       <option selected>Choose a type...</option>
       <?php
+        // Create from db datas
         $typeList = select(array('id', 'name'), 'type');
         foreach($typeList as $key => $value){
           echo "<option value='". $value['id'] ."'>". $value['name'] ."</option>";
@@ -47,6 +50,7 @@
     <div class='ingredient' id='ingredient'>
       <a id='close' href='#' onclick="document.getElementById('ingredient').style.display = 'none';"></a>
       <?php
+        // Create from db datas
         $ingredientList = select(array('id', 'name', 'caloriesPer100g'), 'ingredient');
         foreach ($ingredientList as $key => $value) {
           echo "<div id='". $value['id'] ."' class='element' onclick='add_element(this);'><div class='name'>". $value['name'] ."</div><div class='calories'>". $value['caloriesPer100g'] ."</div>cal/100g</div>";
@@ -57,9 +61,7 @@
     </div>
     <div class='add' onclick="document.getElementById('ingredient').style.display = 'block';"></div>
 
-    <input type='submit' value='Suggest the dish'>
-
-    <div>Clear</div>
+    <input class='submit' type='submit' value='Suggest the dish'>
   </section>
 
   <textarea name='recipe' role="textbox" class='fm_txtfld' placeholder='Add recipe...' required></textarea>

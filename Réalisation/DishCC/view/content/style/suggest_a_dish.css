@@ -14,6 +14,25 @@
   padding: 2em;
 }
 
+.suggest_a_dish .submit{
+  display: block;
+  padding: 1em;
+  width: 10em;
+  color: #F5F5F5;
+  font-size: larger;
+  font-weight: bolder;
+  cursor: pointer;
+  text-align: center;
+  margin: .25em;
+  background-color: #1FAB89;
+  border: none;
+}
+
+.suggest_a_dish .submit:hover{
+  background-color: #468F7F;
+  transition: .3s;
+}
+
 .suggest_a_dish .hr, .suggest_a_dish .nb{
   display: inline;
 }

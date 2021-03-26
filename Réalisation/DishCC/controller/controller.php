@@ -229,6 +229,9 @@ function suggest_a_dish(){
   page_constructor('Suggest a dish');
 }
 
+/**
+ * @param string[] $request [field => value]
+ **/
 function check_suggest_a_dish($request){
   require_once "model/dbManager.php";
   if(
@@ -242,6 +245,7 @@ function check_suggest_a_dish($request){
     isset($request['recipe'])
   ){
     $check = true;
+
     if($check){
       $dish['ni'] = gen_ni('dish');
       $dish['name'] = $request['name'];
@@ -270,6 +274,11 @@ function check_suggest_a_dish($request){
   }
 }
 
+ /**
+  * @param string $table db table name
+  *
+  * @return string
+  */
 function gen_ni($table){
   require_once "model/dbManager.php";
 
@@ -280,6 +289,11 @@ function gen_ni($table){
   $numeric = '1234567890';
   $ni = '';
 
+  /**
+  * @param string $char list
+  *
+  * @return char
+  */
   function rand_as_length($array){return $array[rand(0, strlen($array)-1)];}
 
   do{

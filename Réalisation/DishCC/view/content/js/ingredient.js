@@ -1,6 +1,6 @@
 /**
- * @param element[] html element from which the function will be executed
- * @param target[] html element where result will be written
+ * @param {element} element element from which the function will be executed
+ * @param {target} target element where result will be written
  **/
 function result(element, target){
   total = 0;
@@ -12,7 +12,12 @@ function result(element, target){
   document.getElementById(target).children[0].innerText = total.toFixed(2);
 }
 
+
+/**
+* @param {element} element ingredient element to add in a list of ingredient
+*/
 function add_element(element){
+  //set ingredient element parameters
   var new_element = document.createElement('div');
   var title = document.createTextNode(element.firstChild.innerText);
   new_element.name = 'ingredient';
@@ -21,6 +26,7 @@ function add_element(element){
   new_element.setAttribute("calories", element.childNodes[1].innerHTML);
   new_element.appendChild(title);
 
+  //input number
   var nbInput = document.createElement('input');
   nbInput.name = "ingredient["+ element.id +"]";
   nbInput.type = 'number';
@@ -31,6 +37,7 @@ function add_element(element){
   var comment = document.createTextNode(' g');
   new_element.appendChild(comment);
 
+  //close button
   var close = document.createElement('div');
   close.className = 'close';
   close.addEventListener("click", function(){
@@ -39,5 +46,6 @@ function add_element(element){
   })
   new_element.appendChild(close);
 
+  //create element in list
   document.getElementById('list').appendChild(new_element);
 }
