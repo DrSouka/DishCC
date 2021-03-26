@@ -18,7 +18,7 @@ class Db
         $statement = $this->dbConnection->prepare($query);//prepare query
         $statement->execute($params);
         $result = $statement->fetchAll();
-      } catch(PDOException $e){
+      }catch(PDOException $e){
         echo $e->getMessage() .' '. $query;
         var_dump($params);
         return false;

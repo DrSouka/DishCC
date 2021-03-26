@@ -86,21 +86,26 @@ function sign_up_check($sign_up_request){
       }
 
       if(
-          strlen($sign_up_request['password']) < 8 &&
-          $minCharType
+        strlen($sign_up_request['password']) < 8 &&
+        $minCharType
       ){
-          $message['password'] = 'The password requires at least 8 characters and 3 different types of characters.';
-          $check = false;
+        $message['password'] = 'The password requires at least 8 characters and 3 different types of characters.';
+        $check = false;
       }
     }
     // Account registration in db
     if($check){
       $datas['email'] = $sign_up_request['email'];
       $datas['password'] = password_hash($sign_up_request['password'], PASSWORD_DEFAULT);
-      insert($datas, 'user'); // insert datas in db
-      $_COOKIE['haveAccount'] = true;
-      header('Location: index.php?action=sign_in');
-      die();
+      try{
+        insert($datas, 'user'); // insert datas in db
+        $_COOKIE['haveAccount'] = true;
+        header('Location: index.php?action=sign_in');
+        die();
+      }catch(Exception $e){
+        echo '<br />The connection with database failed. Please check everything is right and retry later.';
+        sign_up();
+      }
     }else{
       sign_up();
     }
@@ -203,7 +208,11 @@ function modify_password_check($modify_request){
       $check &&
       password_verify($modify_request['cPassword'], $password[0]['password'])
     ){
-      update(array('password' => password_hash($modify_request['cPassword'], PASSWORD_DEFAULT)), 'user', $_SESSION['uid']);
+      try{
+        update(array('password' => password_hash($modify_request['cPassword'], PASSWORD_DEFAULT)), 'user', $_SESSION['uid']);
+      }catch(Exception $e){
+        echo '<br />The connection with database failed. Please check everything is right and retry later.';
+      }
     }
   }
 }
