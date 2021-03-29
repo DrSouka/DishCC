@@ -33,11 +33,33 @@ class Db
      * @throws PDOException
      */
     public function insert($query, $params = []){
+      try{
         $statement = $this->dbConnection->prepare($query);//prepare query
-        if(!$statement->execute($params)){
-            echo $db->errorInfo();
-        }
-        return $this->dbConnection->lastInsertId();
+        $statement->execute($params);
+      }catch(PDOException $e){
+        echo $e->getMessage() .' '. $query;
+        var_dump($params);
+        return false;
+      }
+      return $this->dbConnection->lastInsertId();
+    }
+
+    /**
+     * This function is designed to insert value in database
+     * @param $query
+     * @return int : $statement->execute() returns the last inserted id if the insert was successful
+     * @throws PDOException
+     */
+    public function update($query, $params = []){
+      try{
+        $statement = $this->dbConnection->prepare($query);//prepare query
+        $statement->execute($params);
+      }catch(PDOException $e){
+        echo $e->getMessage() .' '. $query;
+        var_dump($params);
+        return false;
+      }
+      return $statement->rowCount();
     }
 
     /**

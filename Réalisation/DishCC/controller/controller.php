@@ -209,7 +209,10 @@ function modify_password_check($modify_request){
       password_verify($modify_request['cPassword'], $password[0]['password'])
     ){
       try{
-        update(array('password' => password_hash($modify_request['cPassword'], PASSWORD_DEFAULT)), 'user', $_SESSION['uid']);
+        update(array('password' => password_hash($modify_request['password'], PASSWORD_DEFAULT)), 'user', $_SESSION['uid']);
+        $_SESSION['pwdChanged'] = true;
+        header('Location: index.php?action=home');
+	      die();
       }catch(Exception $e){
         echo '<br />The connection with database failed. Please check everything is right and retry later.';
       }
