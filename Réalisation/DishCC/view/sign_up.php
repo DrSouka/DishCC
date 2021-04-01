@@ -1,1 +1,1 @@
-sign_up
+<?php require 'view/home.php';?>

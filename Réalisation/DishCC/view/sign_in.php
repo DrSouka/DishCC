@@ -1,1 +1,1 @@
-sign_in
+<?php require 'view/home.php';?>
